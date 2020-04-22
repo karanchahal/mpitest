@@ -265,6 +265,8 @@ int main(int argc, char *argv[]) {
             new_X[(int)blck_size] = flag;
             MPI_Send(new_X, blck_size + 1, MPI_DOUBLE, 0, SEND_FLAG, MPI_COMM_WORLD);
         }
+        
     }
+    MPI_Finalize();
     
 }

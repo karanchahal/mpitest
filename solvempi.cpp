@@ -201,7 +201,7 @@ int main(int argc, char *argv[]) {
             fprintf (pFile, "%lf\n",X[i]);
         }
         fclose (pFile);
-
+        MPI_Finalize();
     } else {
         // OpenMPI Slave
         double helper_vars[2];
@@ -264,6 +264,7 @@ int main(int argc, char *argv[]) {
             new_X[(int)blck_size] = flag;
             MPI_Send(new_X, blck_size + 1, MPI_DOUBLE, 0, SEND_FLAG, MPI_COMM_WORLD);
         }
+        MPI_Finalize();
     }
     
 }
